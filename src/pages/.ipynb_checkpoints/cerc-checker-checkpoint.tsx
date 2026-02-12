@@ -3,6 +3,8 @@ import { Navbar } from "@/components/Navbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { API_BASE } from "@/lib/api";
+
 
 type CercResult = {
   sno: string;
@@ -32,7 +34,7 @@ export default function CercChecker() {
     setResults([]);
 
     try {
-      const r = await fetch("http://127.0.0.1:8000/api/cerc/search", {
+      const r = await fetch(`${API_BASE}/api/cerc/search`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
